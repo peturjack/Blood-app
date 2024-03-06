@@ -1,8 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { NativeWindStyleSheet } from "nativewind";
-import { router } from "expo-router";
-import ProfilePage from "./profile";
+import PrimaryButton from "../components/buttons/primaryButton/PrimaryButton";
 
 NativeWindStyleSheet.setOutput({
   default: "native",
@@ -11,7 +10,7 @@ NativeWindStyleSheet.setOutput({
 const App = () => {
   return (
     <>
-      <ProfilePage />
+      <PrimaryButton route="/appointments" title="Hello world" />
     </>
   );
 };

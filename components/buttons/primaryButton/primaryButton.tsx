@@ -1,8 +1,21 @@
-import React from "react";
-import { Text } from "react-native";
+import { Pressable, Text, View } from "react-native";
+import { router } from "expo-router";
 
-const primaryButton = () => {
-  return <Text>primaryButton</Text>;
+type Props = {
+  title: string;
+  route: string;
 };
 
-export default primaryButton;
+const PrimaryButton = ({ title, route }: Props) => {
+  return (
+    <>
+      <Pressable onPress={() => router.push(route)}>
+        <View className="flex justify-center items-center rounded-full bg-red-700">
+          <Text className="text-white">{title}</Text>
+        </View>
+      </Pressable>
+    </>
+  );
+};
+
+export default PrimaryButton;

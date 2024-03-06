@@ -1,10 +1,7 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { Text } from "react-native";
-type containerProps = {
-  children: ReactNode;
-};
 
-const Container = (props: containerProps) => {
+const Container = () => {
   return <Text>Container</Text>;
 };
 
