@@ -1,18 +1,12 @@
 import React from "react";
 import { SafeAreaView, Text, TouchableOpacity } from "react-native";
-import { Link, router } from "expo-router";
+import PrimaryButton from "../../components/buttons/primaryButton/PrimaryButton";
 
 const Appointment = () => {
   return (
     <>
+      <PrimaryButton route="/" title="Go back" />
       <SafeAreaView>
-        <TouchableOpacity
-          className="flex justify-center items-center bg-red-700 rounded-full"
-          onPress={() => router.push("/")}
-        >
-          <Text className="text-white px-4 py-3">Go back</Text>
-        </TouchableOpacity>
-
         <Text>This is your appointment page</Text>
       </SafeAreaView>
     </>

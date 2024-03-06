@@ -1,4 +1,4 @@
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import { router } from "expo-router";
 
 type Props = {
@@ -9,11 +9,13 @@ type Props = {
 const PrimaryButton = ({ title, route }: Props) => {
   return (
     <>
-      <Pressable onPress={() => router.push(route)}>
-        <View className="flex justify-center items-center rounded-full bg-red-700">
-          <Text className="text-white">{title}</Text>
-        </View>
-      </Pressable>
+      <View className="flex justify-center items-center">
+        <TouchableOpacity onPress={() => router.push(route)}>
+          <View className="flex justify-center items-center rounded-full bg-red-700 py-4 px-20 ">
+            <Text className="text-white">{title}</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     </>
   );
 };
