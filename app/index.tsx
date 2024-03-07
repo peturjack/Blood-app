@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Text } from "react-native";
 import { NativeWindStyleSheet } from "nativewind";
-import PrimaryButton from "../components/buttons/primaryButton/PrimaryButton";
+import PrimaryButton from "../components/buttons/primaryButton";
+import { Text } from "react-native";
 
 NativeWindStyleSheet.setOutput({
   default: "native",
@@ -10,7 +10,8 @@ NativeWindStyleSheet.setOutput({
 const App = () => {
   return (
     <>
-      <PrimaryButton route="/appointments" title="Hello world" />
+      <PrimaryButton route="/home/profile" title="Hello world" />
+      <Text>Hello</Text>
     </>
   );
 };

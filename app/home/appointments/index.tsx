@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView, Text, TouchableOpacity } from "react-native";
-import PrimaryButton from "../../components/buttons/primaryButton/PrimaryButton";
+import PrimaryButton from "../../../components/buttons/primaryButton";
 
 const Appointment = () => {
   return (
