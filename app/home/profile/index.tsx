@@ -11,7 +11,7 @@ const ProfilePage = () => {
           <Button
             color="white"
             title="Book Appointments"
-            onPress={() => router.push("/appointments")}
+            onPress={() => router.push("/home/appointments")}
           ></Button>
         </TouchableOpacity>
       </SafeAreaView>
