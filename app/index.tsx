@@ -10,7 +10,7 @@ NativeWindStyleSheet.setOutput({
 const App = () => {
   return (
     <>
-      <PrimaryButton route="/home/profile" title="Hello world" />
+      <PrimaryButton isPrimary={true} route="/home/profile" title="Hello world" />
       <Text>Hello</Text>
     </>
   );
