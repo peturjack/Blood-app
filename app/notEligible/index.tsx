@@ -1,12 +1,12 @@
 import React from "react";
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView, Text, View } from "react-native";
 
 const NotEligible = () => {
   return (
     <>
-      <SafeAreaView>
+      <View>
         <Text>This is your not eligible page</Text>
-      </SafeAreaView>
+      </View>
     </>
   );
 };
