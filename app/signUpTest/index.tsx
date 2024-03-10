@@ -8,13 +8,29 @@ const SignUpTest = () => {
   return (
     <Gradient>
       <View className="flex h-[100%] items-center">
-        <View className="h-[25%] mt-[10%] items-center">
-          <Text className="text-4xl text-bold text-white ">Let’s get tested!</Text>
+        <View className="h-[22%] mt-[10%] items-center">
+          <Text className="text-4xl font-bold text-white ">Let’s get tested!</Text>
           <Text className="mt-10 text-2xl text-white">Take the test below to see if you’re eligible for blood donation</Text>
         </View>
-        <View className="h-[50%] flex-row">
-          <TestedButtons route="/notEligible" title="No" />
-          <TestedButtons route="/notEligible" title="No" />
+        <View className="h-[15%] flex-row justify-between w-[212px]">
+          <Text className="absolute h-[54px] w-[370px] text-white self-center mb-[60%]">Do you weight more than 50KG?</Text>
+          <TestedButtons title="Yes" />
+          <TestedButtons title="No" />
+        </View>
+        <View className="h-[15%] flex-row justify-between w-[212px]">
+          <Text className="absolute h-[54px] w-[370px] text-white self-center mb-[60%]">Do you weight more than 50KG?</Text>
+          <TestedButtons title="Yes" />
+          <TestedButtons title="No" />
+        </View>
+        <View className="h-[15%] flex-row justify-between w-[212px]">
+          <Text className="absolute h-[54px] w-[370px] text-white self-center mb-[60%]">Do you weight more than 50KG?</Text>
+          <TestedButtons title="Yes" />
+          <TestedButtons title="No" />
+        </View>
+        <View className="h-[15%] flex-row justify-between w-[212px]">
+          <Text className="absolute h-[54px] w-[370px] text-white self-center mb-[60%]">Do you weight more than 50KG?</Text>
+          <TestedButtons title="Yes" />
+          <TestedButtons title="No" />
         </View>
         <PrimaryButton isPrimary={false} route="/visit" title="Finish Test" />
       </View>

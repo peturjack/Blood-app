@@ -1,6 +1,5 @@
-import { router } from "expo-router";
+import { Pressable, Text, View } from "react-native";
 import React, { useState } from "react";
-import { Pressable, Text, TouchableOpacity, View } from "react-native";
 
 type Props = {
   title: string;
@@ -9,26 +8,34 @@ type Props = {
 
 const TestedButtons = ({ title, route }: Props) => {
   const [isActive, setIsActive] = useState(false);
-  //const myRoute = () => router.push(route || "");
+
   const handleChangeColor = () => {
     setIsActive(!isActive);
-    // myRoute();
   };
 
   return (
     <View>
       <Pressable
         onPress={handleChangeColor}
-        className={` ${
-          isActive ? "bg-transparent" : "bg-white"
-        } w-[94px] py-2 border-white border-2 rounded-full flex justify-center items-center`}
+        style={{
+          backgroundColor: isActive ? "white" : "transparent",
+          width: 94,
+          height: 40,
+          borderWidth: 2,
+          borderColor: "white",
+          borderRadius: 20,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
         <Text
-          className={`text-sm font-bold ${
-            isActive ? "text-white" : "text-[#F23E50]"
-          }`}
+          style={{
+            fontSize: 14,
+            fontWeight: "bold",
+            color: isActive ? "#F23E50" : "white",
+          }}
         >
-          {isActive ? title : "yes"}
+          {title}
         </Text>
       </Pressable>
     </View>
