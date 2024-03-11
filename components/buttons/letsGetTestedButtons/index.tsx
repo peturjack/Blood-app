@@ -1,12 +1,13 @@
-import { Pressable, Text, View } from "react-native";
+import { router } from "expo-router";
 import React, { useState } from "react";
+import { Pressable, Text, TouchableOpacity, View } from "react-native";
 
 type Props = {
   title: string;
   route?: string;
 };
 
-const TestedButtons = ({ title, route }: Props) => {
+const TestedButtons = ({ title, route }: buttonProps) => {
   const [isActive, setIsActive] = useState(false);
 
   const handleChangeColor = () => {
@@ -14,7 +15,7 @@ const TestedButtons = ({ title, route }: Props) => {
   };
 
   return (
-    <View>
+    <Link href={`${route}`}>
       <Pressable
         onPress={handleChangeColor}
         style={{
@@ -38,7 +39,7 @@ const TestedButtons = ({ title, route }: Props) => {
           {title}
         </Text>
       </Pressable>
-    </View>
+    </Link>
   );
 };
 

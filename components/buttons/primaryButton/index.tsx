@@ -1,18 +1,12 @@
-import { Pressable, Text, TouchableOpacity, View } from "react-native";
-import { router } from "expo-router";
-import { useState } from "react";
+import { Pressable, Text, View } from "react-native";
+import { Link, router } from "expo-router";
+import { buttonProps } from "../../../utils/types";
 
-type Props = {
-  title: string;
-  route: string;
-  isPrimary: boolean;
-};
-
-const PrimaryButton = ({ title, route, isPrimary }: Props) => {
+const PrimaryButton = ({ title, route, isPrimary }: buttonProps) => {
   return (
     <>
-      <View className="flex justify-center items-center">
-        <Pressable onPress={() => router.push(route)}>
+      <Link href={`${route}`}>
+        <Pressable className="flex justify-center items-center">
           <View
             className={`flex justify-center items-center rounded-full ${
               isPrimary ? "bg-blood" : "bg-white"
@@ -23,7 +17,7 @@ const PrimaryButton = ({ title, route, isPrimary }: Props) => {
             </Text>
           </View>
         </Pressable>
-      </View>
+      </Link>
     </>
   );
 };
