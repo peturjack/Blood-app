@@ -1,13 +1,18 @@
 import React from "react";
-import { SafeAreaView, Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
+import Gradient from "../../components/colors/gradient";
+
 
 const NotEligible = () => {
   return (
-    <>
+   <Gradient>
+    <View>
+      <Image source={require('../../assets/white_confused_5.svg')}></Image>
       <View>
-        <Text>This is your not eligible page</Text>
+        <Text>We're bloody sorry...</Text>
       </View>
-    </>
+    </View>
+   </Gradient>
   );
 };
 

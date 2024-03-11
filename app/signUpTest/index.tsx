@@ -69,7 +69,7 @@ const SignUpTest = () => {
           </View>
         </View>
         <View className="h-[10%]">
-          <PrimaryButton isPrimary={false} route="/visit" title="Finish Test" />
+          <PrimaryButton isPrimary={false} route="/notEligible" title="Finish Test" />
         </View>
       </ScrollView>
     </Gradient>
