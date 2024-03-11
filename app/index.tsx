@@ -21,6 +21,11 @@ const App = () => {
       />
       <Text>Hello</Text>
       <DonationButtons route="/" title="" />
+
+      <AppointmentCard />
+
+      <TestedButtons isPrimary={true} title="yes" />
+      <TestedButtons isPrimary={false} title="No" />
     </>
   );
 };
