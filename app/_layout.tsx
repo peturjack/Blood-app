@@ -1,5 +1,5 @@
 import { Slot } from "expo-router";
-import Navigation from "../../components/navigation";
+
 import { SafeAreaView } from "react-native";
 
 export default function HomeLayout() {
@@ -7,7 +7,6 @@ export default function HomeLayout() {
     <>
       <SafeAreaView className="flex-1 w-[85%] m-auto">
         <Slot />
-        <Navigation />
       </SafeAreaView>
     </>
   );
