@@ -12,42 +12,65 @@ const SignUpTest = () => {
           <Text className="text-4xl font-bold text-white">Let’s get tested!</Text>
           <Text className="mt-10 text-2xl text-white">Take the test below to see if you’re eligible for blood donation</Text>
         </View>
-        <View className="h-[15%] flex-row justify-between w-[212px]">
-          <Text className="absolute h-[54px] w-[370px] text-white self-center mb-[60%]">Do you weight more than 50KG?</Text>
-          <TestedButtons title="Yes" />
-          <TestedButtons title="No" />
+        <View className="flex-col items-center p-0 mb-20 max-w-[100%]">
+          <Text className="text-white mb-5">Are you in good health?</Text>
+          <View className="flex-row justify-between w-[212px]">
+            <TestedButtons title="Yes" />
+            <TestedButtons title="No" />
+          </View>
         </View>
-        <View className="h-[15%] flex-row justify-between w-[212px]">
-          <Text className="absolute h-[54px] w-[370px] text-white self-center mb-[60%]">Do you weight more than 50KG?</Text>
-          <TestedButtons title="Yes" />
-          <TestedButtons title="No" />
+        <View className="flex-col items-center p-0 mb-20 max-w-[100%]">
+          <Text className="text-white mb-5">Is your weight above 50 KG?</Text>
+          <View className="flex-row justify-between w-[212px]">
+            <TestedButtons title="Yes" />
+            <TestedButtons title="No" />
+          </View>
         </View>
-        <View className="h-[15%] flex-row justify-between w-[212px]">
-          <Text className="absolute h-[54px] w-[370px] text-white self-center mb-[60%]">Do you weight more than 50KG?</Text>
-          <TestedButtons title="Yes" />
-          <TestedButtons title="No" />
+        <View className="flex-col items-center p-0 mb-20 max-w-[80%]">
+          <Text className="text-white mb-5">Do you suffer from type 1 or 2 diabetes?</Text>
+          <View className="flex-row justify-between w-[212px]">
+            <TestedButtons title="Yes" />
+            <TestedButtons title="No" />
+          </View>
         </View>
-        <View className="h-[15%] flex-row justify-between w-[212px]">
-          <Text className="absolute h-[54px] w-[370px] text-white self-center mb-[60%]">Do you weight more than 50KG?</Text>
-          <TestedButtons title="Yes" />
-          <TestedButtons title="No" />
+        <View className="flex-col items-center p-0 mb-20 max-w-[80%]">
+          <Text className="text-white mb-5">Have you gotten any tatto in the last 4 months?</Text>
+          <View className="flex-row justify-between w-[212px]">
+            <TestedButtons title="Yes" />
+            <TestedButtons title="No" />
+          </View>
         </View>
-        <View className="h-[15%] flex-row justify-between w-[212px]">
-          <Text className="absolute h-[54px] w-[370px] text-white self-center mb-[60%]">Do you weight more than 50KG?</Text>
-          <TestedButtons title="Yes" />
-          <TestedButtons title="No" />
+        <View className="flex-col items-center p-0 mb-20 max-w-[80%]">
+          <Text className="text-white mb-5">Are you in medical treatment or are you using any medicine?</Text>
+          <View className="flex-row justify-between w-[212px]">
+            <TestedButtons title="Yes" />
+            <TestedButtons title="No" />
+          </View>
         </View>
-        <View className="h-[15%] flex-row justify-between w-[212px]">
-          <Text className="absolute h-[54px] w-[370px] text-white self-center mb-[60%]">Do you weight more than 50KG?</Text>
-          <TestedButtons title="Yes" />
-          <TestedButtons title="No" />
+        <View className="flex-col items-center p-0 mb-20 max-w-[80%]">
+          <Text className="text-white mb-5">Are you currently pregnant or have been in the last 6 months?</Text>
+          <View className="flex-row justify-between w-[212px]">
+            <TestedButtons title="Yes" />
+            <TestedButtons title="No" />
+          </View>
         </View>
-        <View className="h-[15%] flex-row justify-between w-[212px]">
-          <Text className="absolute h-[54px] w-[370px] text-white self-center mb-[60%]">Do you weight more than 50KG?</Text>
-          <TestedButtons title="Yes" />
-          <TestedButtons title="No" />
+        <View className="flex-col items-center p-0 mb-20 max-w-[80%]">
+          <Text className="text-white mb-5">Have you been diagnosticated of Covid 19 in the past 28 days?</Text>
+          <View className="flex-row justify-between w-[212px]">
+            <TestedButtons title="Yes" />
+            <TestedButtons title="No" />
+          </View>
         </View>
-        <PrimaryButton isPrimary={false} route="/visit" title="Finish Test" />
+        <View className="flex-col items-center p-0 mb-20 max-w-[80%]">
+          <Text className="text-white mb-5">Have you been in the UK for 12 months (not consecutive necessary) between 1980 and 1996?</Text>
+          <View className="flex-row justify-between w-[212px]">
+            <TestedButtons title="Yes" />
+            <TestedButtons title="No" />
+          </View>
+        </View>
+        <View className="h-[10%]">
+          <PrimaryButton isPrimary={false} route="/visit" title="Finish Test" />
+        </View>
       </ScrollView>
     </Gradient>
   );
