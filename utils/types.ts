@@ -4,6 +4,7 @@ export type buttonProps = {
     isPrimary?: boolean,
     onPress?: () => void,
     handleClick?: () => void,
+    disabled?: boolean,
 }
 
 export type settingsProps = {

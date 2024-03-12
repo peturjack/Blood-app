@@ -27,7 +27,7 @@ const SignUpTest = () => {
 
   const isAllAnswersCorrect = () => {
     const correct = answers.every((answer, index) =>
-      answer === testQuestions[index].correctAnswer && answer === true
+      answer === testQuestions[index].correctAnswer && answer !== null
     );
     return correct;
   };
