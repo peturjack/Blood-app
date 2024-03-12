@@ -3,11 +3,14 @@ import { Pressable, Text, View } from "react-native";
 import { buttonProps } from "../../../utils/types";
 import { Link } from "expo-router";
 
-const TestedButtons = ({ title }: buttonProps) => {
+const TestedButtons = ({ title, handleClick }: buttonProps) => {
   const [isActive, setIsActive] = useState(false);
 
   const handleChangeColor = () => {
     setIsActive(!isActive);
+    if(handleClick) {
+      handleClick();
+    }
   };
 
   return (

@@ -1,11 +1,9 @@
 import { Pressable, Text, View } from "react-native";
-import { Link, router } from "expo-router";
 import { buttonProps } from "../../../utils/types";
 
-const PrimaryButton = ({ title, route, isPrimary }: buttonProps) => {
+const PrimaryButton = ({ title, isPrimary }: buttonProps) => {
   return (
     <>
-      <Link href={`${route}`}>
         <Pressable className="flex justify-center items-center">
           <View
             className={`flex justify-center items-center rounded-full ${
@@ -17,7 +15,6 @@ const PrimaryButton = ({ title, route, isPrimary }: buttonProps) => {
             </Text>
           </View>
         </Pressable>
-      </Link>
     </>
   );
 };
