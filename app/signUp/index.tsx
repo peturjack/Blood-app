@@ -1,48 +1,60 @@
-import React, { useState } from 'react'
-import { Text, Alert, StyleSheet, View, AppState, Pressable } from 'react-native';
-import { Button, Input } from 'react-native-elements'
-import { supabase } from '../../lib/supabase'
-import Gradient from '../../components/colors/gradient'
-import { TextInput } from 'react-native'
-import PrimaryButton from '../../components/buttons/primaryButton'
-
-AppState.addEventListener('change', (state) => {
-  if (state === 'active') {
-    supabase.auth.startAutoRefresh()
-  } else {
-    supabase.auth.stopAutoRefresh()
-  }
-})
+import React, { useState, useEffect } from 'react';
+import { Text, Alert, View, TextInput } from 'react-native';
+import { supabase } from '../../lib/supabase';
+import Gradient from '../../components/colors/gradient';
+import PrimaryButton from '../../components/buttons/primaryButton';
+import { Link } from 'expo-router';
 
 export default function SignUp() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
-
-  async function signInWithEmail() {
-    setLoading(true)
-    const { error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
-    })
-
-    if (error) Alert.alert(error.message)
-    setLoading(false)
-  }
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [redirectToSignIn, setRedirectToSignIn] = useState(false);
 
   async function signUpWithEmail() {
-    setLoading(true)
-    const {
-      data: { session },
-      error,
-    } = await supabase.auth.signUp({
+    setLoading(true);
+    const { data, error } = await supabase.auth.signUp({
       email: email,
       password: password,
-    })
+    });
 
-    if (error) Alert.alert(error.message)
-    if (!session) Alert.alert('Please check your inbox for email verification!')
-    setLoading(false)
+    if (error) {
+      Alert.alert(error.message);
+      setLoading(false);
+      return;
+    }
+    if (data && data.user) {
+      Alert.alert('Registration successful!');
+      setLoading(false);
+      setRegistrationSuccess(true);
+    }
+  }
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (registrationSuccess) {
+      timer = setTimeout(() => {
+        setRedirectToSignIn(true);
+      }, 0);
+    }
+    return () => clearTimeout(timer);
+  }, [registrationSuccess]);
+
+  if (redirectToSignIn) {
+    return (
+      <Gradient>
+        <View className='flex-1 justify-center items-center'>
+          <Text className='text-white text-[24px]'>Registration successful!</Text>
+          <Text className='text-white text-[16px]'>You can now sign in.</Text>
+          <Link href={'/signIn'}>
+            <View className='mt-10'>
+              <PrimaryButton title="Sign In!" />
+            </View>
+          </Link>
+        </View>
+      </Gradient>
+    );
   }
 
   return (
@@ -67,10 +79,9 @@ export default function SignUp() {
           <View className='absolute'>
           </View>
         </View>
-
       </View>
       <View className='h-[20%]'>
-        <PrimaryButton title="Become a Buddy!" disabled={loading} onPress={() => signUpWithEmail()} />
+        <PrimaryButton title="Become a Buddy!" onPress={() => signUpWithEmail()} disabled={loading} />
       </View>
     </Gradient>
   )
