@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Text, Alert, View, TextInput } from 'react-native';
+import { Text, Alert, View, TextInput, TouchableOpacityBase, TouchableOpacity } from 'react-native';
 import { supabase } from '../../lib/supabase';
 import Gradient from '../../components/colors/gradient';
 import PrimaryButton from '../../components/buttons/primaryButton';
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 
 export default function SignUp() {
   const [email, setEmail] = useState('');
@@ -13,6 +13,7 @@ export default function SignUp() {
   const [redirectToSignIn, setRedirectToSignIn] = useState(false);
 
   async function signUpWithEmail() {
+
     setLoading(true);
     const { data, error } = await supabase.auth.signUp({
       email: email,
@@ -28,33 +29,8 @@ export default function SignUp() {
       Alert.alert('Registration successful!');
       setLoading(false);
       setRegistrationSuccess(true);
+      router.push("/signIn");
     }
-  }
-
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (registrationSuccess) {
-      timer = setTimeout(() => {
-        setRedirectToSignIn(true);
-      }, 0);
-    }
-    return () => clearTimeout(timer);
-  }, [registrationSuccess]);
-
-  if (redirectToSignIn) {
-    return (
-      <Gradient>
-        <View className='flex-1 justify-center items-center'>
-          <Text className='text-white text-[24px]'>Registration successful!</Text>
-          <Text className='text-white text-[16px]'>You can now sign in.</Text>
-          <Link href={'/signIn'}>
-            <View className='mt-10'>
-              <PrimaryButton title="Sign In!" />
-            </View>
-          </Link>
-        </View>
-      </Gradient>
-    );
   }
 
   return (
@@ -98,7 +74,7 @@ export default function SignUp() {
         </View>
       </View>
       <View className='mt-auto mb-[10%]'>
-          <PrimaryButton title="Become a Buddy!" onPress={() => signUpWithEmail()} route='/signIn' disabled={loading} />
+        <PrimaryButton title="Become a Buddy!" onPress={() => signUpWithEmail()} disabled={loading} />
       </View>
     </Gradient>
   )
