@@ -21,7 +21,6 @@ const App = () => {
         title="Hello world"
       />
       <Text>Hello</Text>
-      <DonationButtons route="/" title="" />
 
       <AppointmentCard />
 
