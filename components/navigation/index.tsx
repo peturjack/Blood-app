@@ -35,8 +35,8 @@ const Navigation = () => {
   };
 
   return (
-    <View className=" overflow-visible pt-5 absolute bottom-0 left-0 right-0 mt-auto flex">
-      <View className="overflow-visible bg-blood flex-row justify-between items-center h-[62px] px-4">
+    <View className=" overflow-visible bottom-0 left-0 right-0 mt-auto flex">
+      <View className="overflow-visible bg-blood flex-row justify-between items-center h-[81px] px-4 ">
         <TouchableOpacity onPress={() => setSelected("info")}>
           <NavIcon selected={activeIcon === "info"}>
             <Foundation name="info" size={50} color="white" />

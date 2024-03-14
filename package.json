@@ -9,12 +9,12 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@gorhom/bottom-sheet": "^4",
     "@react-native-async-storage/async-storage": "^1.22.3",
     "@react-navigation/stack": "^6.3.28",
-    "@gorhom/bottom-sheet": "^4",
+    "@supabase/supabase-js": "^2.39.8",
     "@types/d3-shape": "^3.1.6",
     "d3-shape": "^3.2.0",
-    "@supabase/supabase-js": "^2.39.8",
     "expo": "^50.0.11",
     "expo-constants": "~15.4.5",
     "expo-image": "~1.10.6",
@@ -40,7 +40,11 @@
     "react-native-safe-area-context": "4.8.2",
     "react-native-screens": "~3.29.0",
     "react-native-svg": "14.1.0",
-    "react-native-web": "~0.19.6"
+    "react-native-tailwindcss": "^1.1.11",
+    "react-native-url-polyfill": "^2.0.0",
+    "react-native-web": "~0.19.6",
+    "react-router-dom": "^6.22.3",
+    "react-router-native": "^6.22.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

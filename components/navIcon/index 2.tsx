@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, useEffect } from "react";
-
+import { View } from "react-native-reanimated/lib/typescript/Animated";
 import Animated, { useSharedValue, withSpring } from "react-native-reanimated";
 
 type Props = {
@@ -17,13 +17,14 @@ const NavIcon = ({ children, selected }: Props) => {
     handleEnlarge();
   }, [selected]);
   const handleEnlarge = () => {
+    console.log("Hello");
     if (selected) {
-      width.value = withSpring(80);
-      height.value = withSpring(80);
-      marginTop.value = withSpring(-25);
-    } else {
       width.value = withSpring(70);
       height.value = withSpring(70);
+      marginTop.value = withSpring(-25);
+    } else {
+      width.value = withSpring(60);
+      height.value = withSpring(60);
       marginTop.value = withSpring(0);
     }
   };

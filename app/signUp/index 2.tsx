@@ -27,7 +27,7 @@ export default function SignUp() {
       Alert.alert('Registration successful!');
       setLoading(false);
       setRegistrationSuccess(true);
-      router.push("/home/profile");
+      router.push("/signIn");
     }
   }
 
@@ -71,7 +71,7 @@ export default function SignUp() {
           </View>
         </View>
       </View>
-      <View className='mt-auto mb-[17%]'>
+      <View className='mt-auto mb-[10%]'>
         <PrimaryButton title="Become a Buddy!" onPress={() => signUpWithEmail()} disabled={loading} />
       </View>
     </Gradient>
