@@ -65,11 +65,28 @@ export default function SignUp() {
           <Text className="text-white font-bold text-[24px] mt-[15%]">Personal information</Text>
           <View className="h-[10%]">
             <Text className="text-white text-base mt-5">Name</Text>
+            <TextInput className="flex-none h-[41px] w-[364px] mt-3 rounded-xl bg-white" />
+            <Text className="text-white text-base mt-5">Social Security Number</Text>
+            <TextInput className="flex-none h-[41px] w-[364px] mt-3 rounded-xl bg-white" />
+            <Text className="text-white text-base mt-5">Email</Text>
             <TextInput className="flex-none h-[41px] w-[364px] mt-3 rounded-xl bg-white"
+              autoCapitalize="none"
               onChangeText={(text) => setEmail(text)}
               value={email}
-              autoCapitalize={'none'}></TextInput>
+            />
+            <Text className="text-white text-base mt-5">Phone</Text>
+            <View className="flex-row justify-between">
+              <TextInput className="flex-none h-[41px] w-[80px] mt-3 rounded-xl bg-white" />
+              <TextInput className="flex-none h-[41px] w-[268px] mt-3 rounded-xl bg-white ml-[16px]" />
+            </View>
+            <Text className="text-white font-bold text-[24px] mt-[15%]">Password</Text>
             <Text className="text-white text-base mt-5">Password</Text>
+            <TextInput className="flex-none h-[41px] w-[364px] mt-3 rounded-xl bg-white"
+              onChangeText={(text) => setPassword(text)}
+              value={password}
+              secureTextEntry={true}
+              autoCapitalize={'none'}></TextInput>
+            <Text className="text-white text-base mt-5">Re-enter Password</Text>
             <TextInput className="flex-none h-[41px] w-[364px] mt-3 rounded-xl bg-white"
               onChangeText={(text) => setPassword(text)}
               value={password}
@@ -80,8 +97,8 @@ export default function SignUp() {
           </View>
         </View>
       </View>
-      <View className='h-[20%]'>
-        <PrimaryButton title="Become a Buddy!" onPress={() => signUpWithEmail()} disabled={loading} />
+      <View className='mt-auto mb-[10%]'>
+          <PrimaryButton title="Become a Buddy!" onPress={() => signUpWithEmail()} route='/signIn' disabled={loading} />
       </View>
     </Gradient>
   )
