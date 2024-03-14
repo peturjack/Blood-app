@@ -3,17 +3,15 @@ import { Text, Alert, View, TextInput, TouchableOpacityBase, TouchableOpacity } 
 import { supabase } from '../../lib/supabase';
 import Gradient from '../../components/colors/gradient';
 import PrimaryButton from '../../components/buttons/primaryButton';
-import { Link, router } from 'expo-router';
+import { router } from 'expo-router';
 
 export default function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
-  const [redirectToSignIn, setRedirectToSignIn] = useState(false);
 
   async function signUpWithEmail() {
-
     setLoading(true);
     const { data, error } = await supabase.auth.signUp({
       email: email,
