@@ -93,7 +93,7 @@ const SecondVisit = () => {
 
     if (enteredPin == pin) {
       // window.location.href = "http://localhost:8081/";
-      router.push("/home");
+      router.push("/");
     } else {
       // Incorrect pin, show error message
       Alert.alert("Error", "Incorrect pin. Please try again.");
