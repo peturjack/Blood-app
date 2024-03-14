@@ -48,7 +48,7 @@ const SignUpTest = () => {
             </View>
           </View>
         ))}
-        <View className="h-[10%]">
+        <View className="h-[20%]">
           <Link href={correctForm ? "/signUp" : "/notEligible"}>
             <PrimaryButton isPrimary={false} title="Finish Test" />
           </Link>
