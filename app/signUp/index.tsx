@@ -33,7 +33,7 @@ export default function SignUp() {
 
   return (
     <Gradient>
-      <View className="h-[80%] items-center ">
+      <View className="h-[95%] items-center ">
         <Text className="text-white font-bold text-4xl mt-10">Sign Up!</Text>
         <View className="flex-none w-[238px] h-[32px] text-center right-[25%]">
           <Text className="text-white font-bold text-[24px] mt-[15%]">Personal information</Text>
@@ -67,12 +67,10 @@ export default function SignUp() {
               secureTextEntry={true}
               autoCapitalize={'none'}></TextInput>
           </View>
-          <View className='absolute'>
-          </View>
         </View>
       </View>
-      <View className='mt-auto mb-[17%]'>
-        <PrimaryButton title="Become a Buddy!" onPress={() => signUpWithEmail()} disabled={loading} />
+      <View className='mb-[10%]'>
+      <PrimaryButton title="Become a Buddy!" onPress={() => signUpWithEmail()} disabled={loading} />
       </View>
     </Gradient>
   )
