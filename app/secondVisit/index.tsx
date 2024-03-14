@@ -17,8 +17,8 @@ const SecondVisit = () => {
   useEffect(() => {
     userStatus();
     getName();
-    console.log("userStatus: " + userStatus().toString);
-    console.log("getName: " + getName().toString);
+    // console.log("userStatus: " + userStatus().toString);
+    // console.log("getName: " + getName().toString);
   }, []);
 
   const userStatus = async () => {
@@ -45,20 +45,22 @@ const SecondVisit = () => {
     const currentUser = { user }.user?.id;
     if (currentUser) {
       const userId = { user }.user?.id;
-      console.log("ID del usuario actual:", userId);
+      console.log("Actual user id:", userId);
     } else {
-      console.log("No hay usuario autenticado");
+      console.log("No auth user");
     }
   };
 
   const getName = async () => {
     try {
-      // var userId = "7ab02517-2f63-4aef-8fdd-ef06c0e36fbf";
+      const user = await supabase.auth.getUser();
+      
+
       var userId = userStatus();
       const { data, error } = await supabase
         .from('profiles')
         .select('name, pin')
-        .eq('id', userId);
+        .eq('id', user.data.user?.id);
 
       if (error) {
         console.error("Error getting user data:", error.message);
@@ -92,11 +94,11 @@ const SecondVisit = () => {
     console.error("Registered pin: " + pin);
 
     if (enteredPin == pin) {
-      // window.location.href = "http://localhost:8081/";
       router.push("/");
     } else {
       // Incorrect pin, show error message
       Alert.alert("Error", "Incorrect pin. Please try again.");
+      // router.push("/secondVisit"); //security test
     }
   };
 
@@ -145,14 +147,16 @@ const SecondVisit = () => {
                 Not you? Change account
               </Text>
             </Link>
-            {/* <Link href="/index">
+            {/* 
+            //Incomming funtionality
+            <Link href="/resetpassword">
               <Text className="text-white text-lg border-b-2 border-white">
                 I forgot my password
               </Text>
-            </Link> */}
+            </Link> 
+            */}
           </View>
           <View className="mt-[25%]">
-            {/* <Button title="Sign In" onPress={checkPin}></Button> */}
             <PrimaryButton title="Sign In" onPress={checkPin}></PrimaryButton>
           </View>
         </View>
