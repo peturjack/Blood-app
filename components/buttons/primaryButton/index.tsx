@@ -1,6 +1,7 @@
 import { Pressable, Text, View } from "react-native";
 import { buttonProps } from "../../../utils/types";
 
+
 const PrimaryButton = ({ title, isPrimary, disabled, onPress }: buttonProps) => {
   return (
     <>
