@@ -1,12 +1,20 @@
-import React from "react";
-import { Text, View, ScrollView, TextInput } from "react-native";
-import Gradient from "../../../components/colors/gradient";
+import React, { useState } from "react";
+import { Text, View, ScrollView,TextInput } from "react-native";
 import SettingsButtons from "../../../components/buttons/settingsButtons";
+import PrimaryButton from "../../../components/buttons/primaryButton";
+import { supabase } from "../../../lib/supabase";
+import { router } from "expo-router";
 
 const Settings = () => {
+  const [newUsername, setNewUsername] = useState('');
 
   const handleToggle = (newValue: boolean) => {
     console.log('Toggle value:', newValue);
+  };
+
+  const handleSignOut = () => {
+    supabase.auth.signOut();
+    router.push('/signIn');
   };
 
   return (
@@ -61,6 +69,9 @@ const Settings = () => {
               <SettingsButtons onToggle={handleToggle}></SettingsButtons>
             </View>
           </View>
+        </View>
+        <View className="mt-10 mb-10">
+          <PrimaryButton title="Logout" isPrimary={true} onPress={handleSignOut} disabled={false} />
         </View>
       </View>
     </ScrollView>
