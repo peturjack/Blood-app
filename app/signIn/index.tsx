@@ -34,7 +34,7 @@ const SignIn = () => {
         console.error('Error al iniciar sesión:', error.message);
       } else {
         console.log('Inicio de sesión exitoso:', identifier);
-        router.push("/home");
+        router.push("/");
       }
     } catch {
       console.error('Error al iniciar sesión:',);
