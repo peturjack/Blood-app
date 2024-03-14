@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, ScrollView } from "react-native";
+import { Text, View, ScrollView, TextInput } from "react-native";
 import Gradient from "../../../components/colors/gradient";
 import SettingsButtons from "../../../components/buttons/settingsButtons";
 
@@ -61,10 +61,6 @@ const Settings = () => {
               <SettingsButtons onToggle={handleToggle}></SettingsButtons>
             </View>
           </View>
-        </View>
-        <View className="mt-5 h-[231px] w-[362px] border-2 border-[#F44E4E] rounded-xl">
-          <Text className="font-bold text-[24px] left-10 top-[24px]">User Info</Text>
-
         </View>
       </View>
     </ScrollView>
