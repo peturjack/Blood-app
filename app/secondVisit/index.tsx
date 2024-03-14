@@ -4,7 +4,7 @@ import { View, Text, TextInput, Image, Button, Alert } from "react-native";
 // import Button from "../../components/buttons/primaryButton";
 import Gradient from "../../components/colors/gradient";
 import { createClient } from '@supabase/supabase-js';
- 
+
 const supabaseUrl = 'https://lathnvpabbkjsfejvsmb.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxhdGhudnBhYmJranNmZWp2c21iIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcwOTY0MTEyMywiZXhwIjoyMDI1MjE3MTIzfQ.b2b2QuL-JDnnx-mU8fioyL9tkC6ScH8mtatqmIVg838';
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -14,17 +14,49 @@ const SecondVisit = () => {
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
+    userStatus();
     getName();
-    console.log("getName: "+getName().toString);
+    console.log("userStatus: " + userStatus().toString);
+    console.log("getName: " + getName().toString);
   }, []);
+
+  const userStatus = async () => {
+    // Test if user is logged in
+    supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN') {
+        if (session) {
+          const currentUser = session.user;
+          const userId = currentUser.id;
+          console.log("user id:", userId);
+        } else {
+          console.log("Couldn't get user data.");
+        }
+      } else if (event === 'SIGNED_OUT') {
+        // session closed
+        console.log("User disconnected");
+      }
+    });
+
+    //get user data
+    const { data: { user } } = await supabase.auth.getUser();
+
+    // Check if user is already logged in
+    const currentUser = { user }.user?.id;
+    if (currentUser) {
+      const userId = { user }.user?.id;
+      console.log("ID del usuario actual:", userId);
+    } else {
+      console.log("No hay usuario autenticado");
+    }
+  };
 
   const getName = async () => {
     try {
-      var userId = 1;// Here comes actual user id, you should swap it with a local variable stored while logging in
+      var userId = userStatus();// Here comes actual user id, you should swap it with a local variable stored while logging in
       const { data, error } = await supabase
         .from('userdata')
         .select('name, pin')
-        .eq('id', userId); 
+        .eq('id', userId);
 
       if (error) {
         console.error("Error getting user data:", error.message);
@@ -54,8 +86,8 @@ const SecondVisit = () => {
 
     const enteredPin = pinCode1 + pinCode2 + pinCode3 + pinCode4;
 
-    console.error("Entered pin: "+enteredPin);
-    console.error("Registered pin: "+pin);
+    console.error("Entered pin: " + enteredPin);
+    console.error("Registered pin: " + pin);
 
     if (enteredPin == pin) {
       window.location.href = "http://localhost:8081/";
