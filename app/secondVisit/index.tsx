@@ -1,12 +1,13 @@
 import { Link } from "expo-router";
 import React, { useEffect, useState } from "react";
-import { View, Text, TextInput, Image, Button, Alert } from "react-native";
-// import Button from "../../components/buttons/primaryButton";
+import { View, Text, TextInput, Image, Alert, Button } from "react-native";
+import PrimaryButton from "../../components/buttons/primaryButton";
 import Gradient from "../../components/colors/gradient";
 import { createClient } from '@supabase/supabase-js';
+import { router } from "expo-router";
 
-const supabaseUrl = 'https://lathnvpabbkjsfejvsmb.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxhdGhudnBhYmJranNmZWp2c21iIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcwOTY0MTEyMywiZXhwIjoyMDI1MjE3MTIzfQ.b2b2QuL-JDnnx-mU8fioyL9tkC6ScH8mtatqmIVg838';
+const supabaseUrl = 'https://cjwhychqcklykfagvlua.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNqd2h5Y2hxY2tseWtmYWd2bHVhIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcwOTgwMjkzNiwiZXhwIjoyMDI1Mzc4OTM2fQ.QhYg2ixin3LnM9rkdO0U7wZ4emHy4BT-PmIz5S3LTMU';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const SecondVisit = () => {
@@ -52,9 +53,10 @@ const SecondVisit = () => {
 
   const getName = async () => {
     try {
-      var userId = userStatus();// Here comes actual user id, you should swap it with a local variable stored while logging in
+      // var userId = "7ab02517-2f63-4aef-8fdd-ef06c0e36fbf";
+      var userId = userStatus();
       const { data, error } = await supabase
-        .from('userdata')
+        .from('profiles')
         .select('name, pin')
         .eq('id', userId);
 
@@ -90,7 +92,8 @@ const SecondVisit = () => {
     console.error("Registered pin: " + pin);
 
     if (enteredPin == pin) {
-      window.location.href = "http://localhost:8081/";
+      // window.location.href = "http://localhost:8081/";
+      router.push("/home");
     } else {
       // Incorrect pin, show error message
       Alert.alert("Error", "Incorrect pin. Please try again.");
@@ -137,19 +140,20 @@ const SecondVisit = () => {
           </View>
 
           <View>
-            <Link href="../signIn/index" className="mb-3">
+            <Link href="/signIn" className="mb-3">
               <Text className="text-white text-lg border-b-2 border-white">
                 Not you? Change account
               </Text>
             </Link>
-            <Link href="../signIn/index">
+            {/* <Link href="/index">
               <Text className="text-white text-lg border-b-2 border-white">
                 I forgot my password
               </Text>
-            </Link>
+            </Link> */}
           </View>
-          <View className="mt-[45%]">
-            <Button title="Sign In" onPress={checkPin}></Button>
+          <View className="mt-[25%]">
+            {/* <Button title="Sign In" onPress={checkPin}></Button> */}
+            <PrimaryButton title="Sign In" onPress={checkPin}></PrimaryButton>
           </View>
         </View>
       </Gradient>
