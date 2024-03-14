@@ -43,7 +43,7 @@ const SignIn = () => {
 
   const validateIdentifier = () => {
     if (!identifier) {
-      setIdentifierError("Email or SSC is required");
+      setIdentifierError("Email required");
       return false;
     } else {
       setIdentifierError("");
@@ -74,7 +74,7 @@ const SignIn = () => {
           </View>
 
           <View className="h-[80%] mt-40">
-            <Text className="text-white text-base">Email or Username</Text>
+            <Text className="text-white text-base">Email </Text>
             <TextInput
               className=" text-base bg-white border-white rounded-md pl-2 pr-2 h-10"
               onChangeText={setIdentifier}
