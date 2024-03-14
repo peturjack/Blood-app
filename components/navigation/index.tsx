@@ -1,24 +1,64 @@
 import React from "react";
-import { Image } from "expo-image";
-import { Entypo, Foundation, MaterialIcons } from "@expo/vector-icons";
-import { SafeAreaView, Text, View } from "react-native";
+
+import {
+  Entypo,
+  Foundation,
+  MaterialIcons,
+  Ionicons,
+} from "@expo/vector-icons";
+import {
+  SafeAreaView,
+  Text,
+  View,
+  Pressable,
+  TouchableOpacity,
+} from "react-native";
+
+import NavIcon from "../navIcon";
+import { useState } from "react";
+import { Link, router } from "expo-router";
 
 const Navigation = () => {
+  const [activeIcon, setActiveIcon] = useState("");
+  const [changeColor, setChangeColor] = useState(false);
+
+  const setSelected = (name: string) => {
+    const routes: { [key: string]: string } = {
+      home: "/home/profile",
+      info: "/home/about",
+      settings: "/home/settings",
+      calendar: "home/appointments",
+    };
+    router.push(routes[name]);
+    setActiveIcon(name);
+    setChangeColor(!changeColor);
+  };
+
   return (
-    <View className=" pt-5 relative top-0 left-0 right-0 mt-auto flex">
-      <View className="z-10 absolute top-[-20px]  rounded-full bg-red-500 h-[95px] w-[95px] flex justify-center items-center self-center">
-        <View className="bg-white rounded-full h-[75px] w-[75px] flex justify-center items-center">
-          <Entypo name="home" size={50} color={"#EF4444"} />
-        </View>
-      </View>
-      <View className="bg-red-500 flex-row justify-between items-center py-[6px]">
-        <View className="ml-5">
-          <Foundation name="info" size={44} color="white" />
-        </View>
-        <View></View>
-        <View className="mr-5">
-          <MaterialIcons name="settings" size={44} color="white" />
-        </View>
+    <View className=" overflow-visible pt-5 absolute bottom-0 left-0 right-0 mt-auto flex">
+      <View className="overflow-visible bg-blood flex-row justify-between items-center h-[62px] px-4">
+        <TouchableOpacity onPress={() => setSelected("info")}>
+          <NavIcon selected={activeIcon === "info"}>
+            <Foundation name="info" size={50} color="white" />
+          </NavIcon>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => setSelected("calendar")}>
+          <NavIcon selected={activeIcon === "calendar"}>
+            <Ionicons name="calendar" size={40} color="white" />
+          </NavIcon>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => setSelected("home")}>
+          <NavIcon selected={activeIcon === "home"}>
+            <Entypo name="home" size={44} color="white" />
+          </NavIcon>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => setSelected("settings")}>
+          <NavIcon selected={activeIcon === "settings"}>
+            <MaterialIcons name="settings" size={44} color="white" />
+          </NavIcon>
+        </TouchableOpacity>
       </View>
     </View>
   );

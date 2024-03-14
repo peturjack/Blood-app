@@ -1,7 +1,12 @@
+import { ReactNode } from "react"
+
 export type buttonProps = {
     title: string,
     route?:string,
     isPrimary?: boolean,
+    onPress?: () => void,
+    handleClick?: () => void,
+    disabled?: boolean,
 }
 
 export type settingsProps = {
@@ -9,5 +14,13 @@ export type settingsProps = {
     title?:string,
     address?: string,
     time?: string
+}
+
+export type profileProp = {
+    top: ReactNode
+    bottom: string
+    bottomColor: string
+    topColor:string
+    borderColor?:string
 }
 
