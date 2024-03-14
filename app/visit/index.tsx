@@ -8,7 +8,7 @@ import { Link } from "expo-router";
 const Visit = () => {
   return (
     <Gradient>
-      <View className="flex h-[100%] items-center">
+      <View className="flex h-[100%] items-centerx1">
         <Image source={require('../../assets/white_drop_2_2.svg')} className="absolute w-[50%] top-[15%] left-[20%]" />
         <Text className="absolute font-bold text-4xl text-white top-[30%]">Blood Buddy</Text>
         <View className="flex h-[90%] justify-end items-center">
