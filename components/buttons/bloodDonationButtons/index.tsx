@@ -5,7 +5,7 @@ import { buttonProps } from "../../../utils/types";
 import { useState } from "react";
 import { bloodDonationTypes } from "../../../utils/constant";
 
-const DonationButtons = ({ title }: buttonProps) => {
+const DonationButtons = () => {
   const [isPrimaryColor, setIsPrimaryColor] = useState(
     bloodDonationTypes.map(() => false)
   );
@@ -26,7 +26,7 @@ const DonationButtons = ({ title }: buttonProps) => {
       <View className="flex-row justify-between w-full">
         <View></View>
         <Text
-          className={`${isPrimaryColor[index] ? "text-white" : "text-black"}`}
+          className={`${isPrimaryColor[index] ? "text-white" : "text-black"} `}
         >
           {title}
         </Text>
