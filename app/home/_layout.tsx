@@ -1,14 +1,14 @@
-import { Slot } from "expo-router";
+import { Slot, Stack } from "expo-router";
 import Navigation from "../../components/navigation";
 import { SafeAreaView } from "react-native";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
-export default function HomeLayout() {
+const HomeLayout: React.FC = () => {
   return (
-    <>
-      <SafeAreaView className="flex-1 w-[85%] m-auto">
+    <BottomSheetModalProvider>
+      <SafeAreaView className="flex-1 w-[100%]">
         <Slot />
-        <Navigation />
       </SafeAreaView>
-    </>
+    </BottomSheetModalProvider>
   );
-}
+};

@@ -6,6 +6,7 @@ import DonationButtons from "../components/buttons/bloodDonationButtons";
 import AppointmentCard from "../components/appointmentCard";
 import { bloodDonationTypes } from "../utils/constant";
 import TestedButtons from "../components/buttons/letsGetTestedButtons";
+import Navigation from "../components/navigation";
 
 NativeWindStyleSheet.setOutput({
   default: "native",
@@ -24,8 +25,9 @@ const App = () => {
 
       <AppointmentCard />
 
-      <TestedButtons isPrimary={true} title="yes" />
-      <TestedButtons isPrimary={false} title="No" />
+      <TestedButtons route="" isPrimary={true} title="yes" />
+      <TestedButtons route="" isPrimary={false} title="No" />
+      <Navigation />
     </>
   );
 };
