@@ -1,34 +1,89 @@
-# Turborepo react-native starter
+<a name="readme-top"></a>
+[![Contributors][contributors-shield]][contributors-url]
 
-This is an official starter Turborepo.
+<!-- Logo -->
+<br />
+<div align="center">
+  <img src="assets/white_drop_2_2.svg" alt="Logo" width="100" height="100" aligh="center">
+  <p align="center">
+    Welcome to Blood Buddy!
+  </p>
+</div>
 
-## Using this example
 
-Run the following command:
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#frontend">Frontend</a></li>
+  </ol>
+</details>
 
-```sh
-npx create-turbo@latest -e with-react-native-web
-```
+## About The Project
 
-## What's inside?
+Blood Buddy is an APP used to book appointments for blood donations instead of using phone calls or going to the different donation places.
 
-This Turborepo includes the following packages/apps:
+Why we choose this project:
+* Blood donations are very important and let's face it the ways of book appointments nowadays are old fashioned
 
-### Apps and Packages
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- `native`: a [react-native](https://reactnative.dev/) app built with [expo](https://docs.expo.dev/)
-- `web`: a [Next.js](https://nextjs.org/) app built with [react-native-web](https://necolas.github.io/react-native-web/)
-- `@repo/ui`: a stub [react-native](https://reactnative.dev/) component library shared by both `web` and `native` applications
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+## Built With
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+This is the technologies that we decided to use for this project.
 
-### Utilities
+[![React Native][React Native]][React Native-url]
+[![Tailwind][TailwindCSS]][TailwindCSS-url]
+[![SupaBase][SupaBase]][SupaBase-url]
 
-This Turborepo has some additional tools already setup for you:
 
-- [Expo](https://docs.expo.dev/) for native development
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [Prettier](https://prettier.io) for code formatting
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-NEED FIX
+## Requirements
+
+In order to be able to use this project you'll need: 
+
+ * Visual Studio Code
+ * Supabase (web)
+
+## Frontend
+
+Once we have everything install in our backend, we can continue with the frontend.
+
+1. Go to the dir Blood-app/    
+    ```sh
+       cd Blood-app/
+    ```
+2. Install NPM packages
+    ```sh
+       npm install
+    ```
+3. Start the project
+    ```sh
+       npx expo start
+    ```    
+
+## Demo
+
+For everyone to try the app the test user is:
+
+        ```
+            email: test@gmail.com
+            password: test1234
+        ```
+
+[React Native]: https://img.shields.io/badge/React%20Native-20232A?style=for-the%22-badge&logo=react&logoColor=61DAFB
+[React Native-url]: https://reactnative.dev/
+[TailwindCSS]: https://img.shields.io/badge/Tailwind-20232A?style=for-the%22-badge&logo=tailwindcss&logoColor=61DAFB
+[TailwindCSS-url]: https://tailwindcss.com/
+[SupaBase]: https://img.shields.io/badge/Supabase-20232A?style=for-the%22-badge&logo=supabase&logoColor=green
+[SupaBase-url]: https://supabase.com/
+[contributors-shield]: https://img.shields.io/github/contributors/peturjack/Blood-app.svg?style=for-the-badge
+[contributors-url]: https://github.com/peturjack/Blood-app/graphs/contributors

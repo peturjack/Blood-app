@@ -6,7 +6,6 @@ import { supabase } from "../../../lib/supabase";
 import { router } from "expo-router";
 
 const Settings = () => {
-  const [newUsername, setNewUsername] = useState('');
 
   const handleToggle = (newValue: boolean) => {
     console.log('Toggle value:', newValue);
