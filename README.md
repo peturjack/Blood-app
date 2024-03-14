@@ -30,9 +30,6 @@
 
 Blood Buddy is an APP used to book appointments for blood donations instead of using phone calls or going to the different donation places.
 
-Why we choose this project:
-* Blood donations are very important and let's face it the ways of book appointments nowadays are old fashioned
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Built With
