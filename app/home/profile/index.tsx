@@ -122,7 +122,11 @@ const ProfilePage = () => {
               className="pb-32"
               onPress={handlePresentModalPress}
             >
-              <PrimaryButton isPrimary={true} title="Book Appointment" />
+              <PrimaryButton
+                disabled={false}
+                isPrimary={true}
+                title="Book Appointment"
+              />
             </TouchableOpacity>
           </View>
 
