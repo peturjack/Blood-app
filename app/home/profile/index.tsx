@@ -21,6 +21,7 @@ import BottomSheet, {
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import DonationButtons from "../../../components/buttons/bloodDonationButtons";
 import { setStatusBarHidden } from "expo-status-bar";
+import Navigation from "../../../components/navigation";
 
 const ProfilePage = () => {
   const profilePic = "../../../assets/profile-pic.png";
@@ -121,7 +122,11 @@ const ProfilePage = () => {
               className="pb-32"
               onPress={handlePresentModalPress}
             >
-              <PrimaryButton isPrimary={true} title="Book Appointment" />
+              <PrimaryButton
+                disabled={false}
+                isPrimary={true}
+                title="Book Appointment"
+              />
             </TouchableOpacity>
           </View>
 
@@ -131,7 +136,6 @@ const ProfilePage = () => {
             backdropComponent={renderBackdrop}
             snapPoints={snapPoints}
             ref={bottomSheetModalRef}
-            detached
           >
             <BottomSheetView className="">
               <View className="flex-row justify-between items-center px-4">

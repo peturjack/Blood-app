@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 import React, { useState } from "react";
 import { Text, View, ScrollView,TextInput } from "react-native";
 import SettingsButtons from "../../../components/buttons/settingsButtons";
@@ -78,3 +80,4 @@ const Settings = () => {
 };
 
 export default Settings;
+>>>>>>> 1cdbf7693aa2ddde71f562d887c5aa940da40736
