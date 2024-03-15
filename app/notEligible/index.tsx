@@ -91,7 +91,7 @@ const NotEligible = () => {
               <Text className="text-white text-4xl font-thin mb-10">
                 Because of {userError ? userError : "an error"} it looks like you’re not eligible to donate blood
               </Text>
-              <Link href="../signUpTest/index" className=" mt-10">
+              <Link href="/signUpTest" className=" mt-10">
                 <Text className="text-white text-[23px] mb-3">Answered wrong on the test?</Text>
                 <br />
                 <Text className="text-white font-bold text-[25px] border-b-2 border-white mb-3 ml-5">
