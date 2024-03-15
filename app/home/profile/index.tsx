@@ -21,6 +21,7 @@ import BottomSheet, {
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import DonationButtons from "../../../components/buttons/bloodDonationButtons";
 import { setStatusBarHidden } from "expo-status-bar";
+import Navigation from "../../../components/navigation";
 
 const ProfilePage = () => {
   const profilePic = "../../../assets/profile-pic.png";
@@ -131,7 +132,6 @@ const ProfilePage = () => {
             backdropComponent={renderBackdrop}
             snapPoints={snapPoints}
             ref={bottomSheetModalRef}
-            detached
           >
             <BottomSheetView className="">
               <View className="flex-row justify-between items-center px-4">

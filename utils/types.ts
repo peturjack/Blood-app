@@ -11,6 +11,7 @@ export type settingsProps = {
     title?:string,
     address?: string,
     time?: string
+    month?:string
 }
 
 export type profileProp = {
